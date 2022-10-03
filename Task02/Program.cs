@@ -5,10 +5,14 @@
 string GetPointIntersectionTwoLines(double k1, double b1, double k2, double b2)
 {
     string result = string.Empty;
+    if (k1 == k2 && b1 == b2) result = "Прямые совпадают"; 
+    else if (k1 == k2) result = "Прямые параллельны";
+    else
+    {
     double x = (b2 - b1)/(k1 - k2);
     double y = k1 * x + b1;
-    if (x == 0 && y == 0) result = "Прямые параллельны";
-    else result = $"Координаты точки пересечения:({x},{y})";
+    result = $"Координаты точки пересечения:({x},{y})";
+    }
     return result;
 }
 
